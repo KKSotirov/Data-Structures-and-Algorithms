@@ -36,3 +36,8 @@ CMakeFiles/
 CMakeCache.txt
 Makefile
 compile_commands.json
+
+*.exe
+*.o
+*.obj
+*.out
