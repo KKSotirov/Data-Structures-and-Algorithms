@@ -1,43 +1,122 @@
 
-# ==========================================
-# Data Structures and Algorithms - Gitignore
-# ==========================================
+# ==============================================
+# DATA STRUCTURES AND ALGORITHMS
+# Sofia University - FMI
+# C++17 | MinGW | Visual Studio Code
+# ==============================================
 
-# C++ compiled files
+
+# ==============================================
+# 1. C++ COMPILED FILES
+# ==============================================
+
+# Executables
 *.exe
+*.out
+*.app
+
+# Object files
 *.o
 *.obj
-*.out
-*.a
-*.dll
+*.lo
 
-# Build directories
+# Libraries
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Debug symbols
+*.pdb
+*.ilk
+*.dSYM/
+
+
+# ==============================================
+# 2. BUILD DIRECTORIES
+# ==============================================
+
 build/
+bin/
+obj/
 Debug/
 Release/
 cmake-build-*/
 
-# Temporary files
+
+# ==============================================
+# 3. VS CODE
+# ==============================================
+
+# Personal editor settings
+.vscode/*
+
+# Keep useful shared configurations
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+# ==============================================
+# 4. CMAKE GENERATED FILES
+# ==============================================
+
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+
+# ==============================================
+# 5. TEMPORARY FILES
+# ==============================================
+
 *.tmp
 *.temp
 *.log
+*.bak
+*.swp
+*.swo
 *~
+*.stackdump
 
-# Operating system files
-.DS_Store
+
+# ==============================================
+# 6. OPERATING SYSTEM FILES
+# ==============================================
+
+# Windows
 Thumbs.db
-desktop.ini
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# VS Code local files
-.vscode/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
 
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-Makefile
-compile_commands.json
+# Linux
+.directory
+.Trash-*/
 
-*.exe
-*.o
-*.obj
-*.out
+
+# ==============================================
+# 7. KEEP SOURCE CODE AND STUDY MATERIALS
+# ==============================================
+
+# These are NOT ignored:
+# *.cpp
+# *.h
+# *.hpp
+# *.pdf
+# *.md
+# *.txt
+#
+# Weekly folders remain tracked:
+# Week 1/
+# Week 2/
+# Week 3/
+# ...
