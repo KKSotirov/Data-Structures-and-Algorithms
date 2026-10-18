@@ -1,0 +1,38 @@
+
+# ==========================================
+# Data Structures and Algorithms - Gitignore
+# ==========================================
+
+# C++ compiled files
+*.exe
+*.o
+*.obj
+*.out
+*.a
+*.dll
+
+# Build directories
+build/
+Debug/
+Release/
+cmake-build-*/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code local files
+.vscode/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+Makefile
+compile_commands.json
