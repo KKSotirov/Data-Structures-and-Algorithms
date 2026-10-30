@@ -28,7 +28,7 @@ private:
         cap *= 2;
     }
 
-    void swap(const Vector &other) noexcept
+    void swap(Vector &other) noexcept
     {
         std::swap(this->data, other.data);
         std::swap(this->size, other.size);
@@ -51,7 +51,7 @@ public:
         // Can be enhanced by adding a try ~> catch block
     }
 
-    Vector &operator=(Vector &other)
+    Vector &operator=(const Vector &other)
     {
         if (this != &other)
         {
@@ -86,7 +86,6 @@ public:
             return false;
 
         this->push_back(0);
-        size++;
         for (size_t i = size - 1; i > index; --i)
             data[i] = data[i - 1];
 
@@ -107,6 +106,7 @@ public:
         return true;
     }
 };
+
 int main()
 {
     int x;

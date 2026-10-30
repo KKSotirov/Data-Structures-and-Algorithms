@@ -1,5 +1,5 @@
 #include <iostream>
-#include "static_array.h"
+#include "static_array.hpp"
 
 int main()
 {

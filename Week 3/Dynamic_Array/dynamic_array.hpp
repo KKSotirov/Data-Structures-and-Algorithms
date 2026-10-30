@@ -9,6 +9,9 @@ private:
     std::size_t size;
     std::size_t capacity;
 
+    void swap(DynamicArray &copy) noexcept;
+    void resize();
+
 public:
     DynamicArray();
     DynamicArray(const DynamicArray &other);
