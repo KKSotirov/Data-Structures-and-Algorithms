@@ -52,3 +52,5 @@ void StaticArray<T, N>::fill(const T &value)
     for (std::size_t i = 0; i < N; i++)
         data[i] = value;
 }
+
+#include "static_array.hpp"
