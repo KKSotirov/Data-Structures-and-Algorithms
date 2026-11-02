@@ -6,43 +6,58 @@
 template <typename T>
 void LinkedStack<T>::swap(LinkedStack &other) noexcept
 {
-    std::swap(topNode, other.topNode);
+    std::swap(tos, other.tos);
     std::swap(count, other.count);
 }
 
 template <typename T>
-LinkedStack<T>::LinkedStack() : topNode(nullptr), count(0) {}
+void LinkedStack<T>::copyFrom(const LinkedStack &other)
+{
+    tos = nullptr;
+    if (other.isEmpty())
+        return;
+
+    Node *iterOther = other.tos;
+
+    try
+    {
+        tos = new Node(iterOther->data);
+        Node *iterThis = tos;
+        do
+        {
+            iterOther = iterOther->next;
+            if (iterOther)
+            {
+                iterThis->next = new Node(iterOther->data);
+                iterThis = iterThis->next;
+                count++;
+            }
+        } while (iterOther);
+    }
+    catch (...)
+    {
+        while (tos != nullptr)
+        {
+            Node *temp = tos;
+            tos = tos->next;
+            delete temp;
+        }
+        count = 0;
+        throw;
+    }
+}
+
+template <typename T>
+LinkedStack<T>::LinkedStack() : tos(nullptr), count(0) {}
 
 // ChatGpt constructor ~~> need to remember it!
 template <typename T>
 LinkedStack<T>::LinkedStack(const LinkedStack &other)
-    : topNode(nullptr), count(0)
+    : tos(nullptr), count(0)
 {
-    if (other.topNode == nullptr)
+    if (other.tos == nullptr)
         return;
-
-    try
-    {
-        topNode = new Node{other.topNode->data, nullptr};
-        count++;
-
-        Node *current = topNode;
-        Node *otherCurrent = other.topNode->next;
-
-        while (otherCurrent != nullptr)
-        {
-            current->next = new Node{otherCurrent->data, nullptr};
-
-            current = current->next;
-            otherCurrent = otherCurrent->next;
-            count++;
-        }
-    }
-    catch (...)
-    {
-        clear();
-        throw;
-    }
+    copyFrom(other);
 }
 
 template <typename T>
@@ -57,22 +72,22 @@ LinkedStack<T> &LinkedStack<T>::operator=(LinkedStack other)
 template <typename T>
 void LinkedStack<T>::push(const T &value)
 {
-    Node *newNode = new Node{value, topNode};
-    topnode = newNode;
+    Node *newNode = new Node{value, tos};
+    tos = newNode;
     count++;
 }
 
 template <typename T>
 void LinkedStack<T>::pop()
 {
-    if (topNode == NULL)
+    if (tos == NULL)
     {
         std::cout << "Stack underflow \n";
         return -1;
     }
 
-    Node *temp = topNode;
-    topNode = topNode.next;
+    Node *temp = tos;
+    tos = tos.next;
 
     delete temp;
     count--;
@@ -81,19 +96,19 @@ void LinkedStack<T>::pop()
 template <typename T>
 T &LinkedStack<T>::top()
 {
-    return topNode.data;
+    return tos.data;
 }
 
 template <typename T>
 const T &LinkedStack<T>::top() const
 {
-    return topNode.data;
+    return tos.data;
 }
 
 template <typename T>
 bool LinkedStack<T>::empty() const
 {
-    return (topNode == NULL);
+    return (tos == NULL);
 }
 
 template <typename T>

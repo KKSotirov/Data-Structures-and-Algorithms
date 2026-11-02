@@ -11,10 +11,11 @@ private:
         Node *next;
     };
 
-    Node *topNode;
+    Node *tos;
     std::size_t count;
 
     void swap(LinkedStack &other) noexcept;
+    void copyFrom(const LinkedStack<T> &other);
 
 public:
     LinkedStack();
