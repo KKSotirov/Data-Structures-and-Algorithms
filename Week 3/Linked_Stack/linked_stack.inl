@@ -48,9 +48,20 @@ void LinkedStack<T>::copyFrom(const LinkedStack &other)
 }
 
 template <typename T>
+void LinkedStack<T>::free()
+{
+    Node *iter = tos;
+    while (iter != nullptr)
+    {
+        Node *prev = iter;
+        iter = iter->next;
+        delete prev;
+    }
+}
+
+template <typename T>
 LinkedStack<T>::LinkedStack() : tos(nullptr), count(0) {}
 
-// ChatGpt constructor ~~> need to remember it!
 template <typename T>
 LinkedStack<T>::LinkedStack(const LinkedStack &other)
     : tos(nullptr), count(0)
@@ -70,6 +81,12 @@ LinkedStack<T> &LinkedStack<T>::operator=(LinkedStack other)
 }
 
 template <typename T>
+LinkedStack<T>::~LinkedStack()
+{
+    free();
+}
+
+template <typename T>
 void LinkedStack<T>::push(const T &value)
 {
     Node *newNode = new Node{value, tos};
@@ -83,11 +100,11 @@ void LinkedStack<T>::pop()
     if (tos == NULL)
     {
         std::cout << "Stack underflow \n";
-        return -1;
+        return;
     }
 
     Node *temp = tos;
-    tos = tos.next;
+    tos = tos->next;
 
     delete temp;
     count--;
@@ -96,13 +113,13 @@ void LinkedStack<T>::pop()
 template <typename T>
 T &LinkedStack<T>::top()
 {
-    return tos.data;
+    return tos->data;
 }
 
 template <typename T>
 const T &LinkedStack<T>::top() const
 {
-    return tos.data;
+    return tos->data;
 }
 
 template <typename T>

@@ -16,6 +16,7 @@ private:
 
     void swap(LinkedStack &other) noexcept;
     void copyFrom(const LinkedStack<T> &other);
+    void free();
 
 public:
     LinkedStack();
