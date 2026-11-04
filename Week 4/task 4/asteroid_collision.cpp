@@ -53,3 +53,19 @@ std::vector<int> asteroidCollision(std::vector<int> &asteroids)
     std::reverse(asteroids.begin(), asteroids.end());
     return asteroids;
 }
+
+int main()
+{
+    std::vector<int> asteroids{10, 2, -5};
+    asteroidCollision(asteroids);
+    std::cout << "Here are the remaining asteroids: \n";
+    std::reverse(asteroids.begin(), asteroids.end());
+
+    while (!asteroids.empty())
+    {
+        std::cout << asteroids.back() << " ";
+        asteroids.pop_back();
+    }
+
+    return 0;
+}
