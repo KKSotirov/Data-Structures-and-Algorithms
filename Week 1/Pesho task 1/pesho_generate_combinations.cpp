@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
-bool contains(const std::vector<int> numbs, const int number)
+bool contains(const std::vector<int> &numbs, const int number)
 {
     for (size_t i = 0; i < numbs.size(); i++)
     {
@@ -148,6 +149,11 @@ void printUniquePermutations(const int n, std::vector<int> &numbs)
     printUniqueVariations(n, n, numbs);
 }
 
+void printPermutations(const int n, std::vector<int> &numbs)
+{
+    printVariations(n, n, numbs);
+}
+
 int main()
 {
     int n, k;
@@ -176,6 +182,10 @@ int main()
 
     std::cout << "Printing all possible permutations " << k << " from " << n << " without repetition! \n";
     printUniquePermutations(n, numbs);
+    std::cout << "\n";
+
+    std::cout << "Printing all possible permutations " << k << " from " << n << " with repetition! \n";
+    printPermutations(n, numbs);
     std::cout << "\n";
 
     return 0;
