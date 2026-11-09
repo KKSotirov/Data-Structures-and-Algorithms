@@ -76,7 +76,7 @@ void printCombinations(const int n, const int k, const int &curr, std::vector<in
     }
 }
 
-void printUniqueVariations(const int n, const int k, std::vector<int> &numbs)
+void printVariations(const int n, const int k, std::vector<int> &numbs)
 {
 
     // 1. Recursive base
@@ -98,17 +98,17 @@ void printUniqueVariations(const int n, const int k, std::vector<int> &numbs)
         return;
     }
 
-    // 2. Else -> Generate unique variations
+    // 2. Else -> Generate variations
     for (int i = 1; i <= n; i++)
     {
         numbs.push_back(i);
-        printUniqueVariations(n, k, numbs);
+        printVariations(n, k, numbs);
 
         numbs.pop_back();
     }
 }
 
-void printVariations(const int n, const int k, std::vector<int> &numbs)
+void printUniqueVariations(const int n, const int k, std::vector<int> &numbs)
 {
 
     // 1. Recursive base
@@ -143,6 +143,11 @@ void printVariations(const int n, const int k, std::vector<int> &numbs)
     }
 }
 
+void printUniquePermutations(const int n, std::vector<int> &numbs)
+{
+    printUniqueVariations(n, n, numbs);
+}
+
 int main()
 {
     int n, k;
@@ -167,6 +172,10 @@ int main()
 
     std::cout << "Printing all possible variations " << k << " from " << n << " with repetition! \n";
     printVariations(n, k, numbs);
+    std::cout << "\n";
+
+    std::cout << "Printing all possible permutations " << k << " from " << n << " without repetition! \n";
+    printUniquePermutations(n, numbs);
     std::cout << "\n";
 
     return 0;
