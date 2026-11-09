@@ -2,7 +2,13 @@
     "files.associations": {
         "iostream": "cpp",
         "ostream": "cpp",
-        "functional": "cpp",
+        "functional": "cpp"
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.ignoreSelection": true,
+    "code-runner.executorMap": {
+        "cpp": "Set-Location -LiteralPath (Split-Path -Parent $fullFileName); $exe = [System.IO.Path]::ChangeExtension($fullFileName, '.exe'); & 'C:\\MinGW\\bin\\g++.exe' -std=c++17 -Wall -Wextra -g $fullFileName -o $exe; if ($LASTEXITCODE -eq 0) { & $exe }"
+    }
 }
