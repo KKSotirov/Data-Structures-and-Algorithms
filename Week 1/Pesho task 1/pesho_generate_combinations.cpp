@@ -154,6 +154,12 @@ void printPermutations(const int n, std::vector<int> &numbs)
     printVariations(n, n, numbs);
 }
 
+void printSubsets(const int n, std::vector<int> &numbs)
+{
+    for (int k = 0; k <= n; k++)
+        printUniqueCombinations(n, k, 1, numbs);
+}
+
 int main()
 {
     int n, k;
@@ -186,6 +192,10 @@ int main()
 
     std::cout << "Printing all possible permutations " << k << " from " << n << " with repetition! \n";
     printPermutations(n, numbs);
+    std::cout << "\n";
+
+    std::cout << "Printing all subsets \n";
+    printSubsets(n, numbs);
     std::cout << "\n";
 
     return 0;
