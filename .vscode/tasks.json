@@ -2,28 +2,28 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "Build C++17",
-            "command": "C:\\MinGW\\bin\\g++.exe",
+            "label": "SDA: Build and Run C++",
+            "type": "process",
+            "command": "powershell.exe",
             "args": [
-                "-std=c++17",
-                "-Wall",
-                "-Wextra",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\.vscode\\run-cpp.ps1",
+                "-Source",
+                "${file}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "clear": true
+            },
+            "problemMatcher": []
         }
     ]
 }
