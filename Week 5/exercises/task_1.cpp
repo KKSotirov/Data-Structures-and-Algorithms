@@ -35,7 +35,7 @@ bool hasExactlyOneElement(const Node<T> *head)
 template <class T>
 bool hasExactlyTwoElements(const Node<T> *head)
 {
-    return hasAtleastTwoElements() && (!(head->next)->next);
+    return hasAtleastTwoElements(head) && (!(head->next)->next);
 }
 
 template <class T>
