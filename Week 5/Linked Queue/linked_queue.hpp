@@ -31,7 +31,7 @@ public:
     const T &front() const;
 
     bool empty() const;
-    std::size_t size() const;
+    std::size_t count() const;
     void clear();
 };
 
