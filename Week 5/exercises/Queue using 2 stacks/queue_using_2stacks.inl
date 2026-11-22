@@ -37,11 +37,7 @@ template <class DataType>
 PseudoQueue<DataType>::PseudoQueue() = default;
 
 template <class DataType>
-PseudoQueue<DataType>::PseudoQueue(const PseudoQueue &other)
-{
-    in = other.in;
-    out = other.out;
-}
+PseudoQueue<DataType>::PseudoQueue(const PseudoQueue &other) : in(other.in), out(other.out) {}
 
 template <class DataType>
 PseudoQueue<DataType> &PseudoQueue<DataType>::operator=(const PseudoQueue &other)
