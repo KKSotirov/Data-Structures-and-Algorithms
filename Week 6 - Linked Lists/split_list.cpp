@@ -8,6 +8,9 @@ struct Node
 template <class DataType>
 void splitByParity(Node<DataType> *&head, Node<DataType> *&even, Node<DataType> *&odd)
 {
+    if (!head)
+        return;
+
     even = nullptr;
     odd = nullptr;
 
